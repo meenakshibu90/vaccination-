@@ -1,0 +1,18 @@
+{% extends 'admintemp/dashindex.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="container">
+    <h1 class="text-center">HOSPITAL UPDATE</h1>
+    <div class="row">
+        <div class="card text-center w-50 mx-auto">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                {{updateform|crispy}}
+                <input type="submit" id="sumbit">
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

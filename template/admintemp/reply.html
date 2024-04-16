@@ -1,0 +1,53 @@
+{% extends 'admintemp/dashindex.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="container">
+    <h1 class="text-center">REPLY</h1><br>
+    <div class="row">
+        <div class="card text-center">
+
+
+<table>
+    <tr><th>TYPE</th>
+    <th>USERNAME</th>
+    <th>SUBJECT</th>
+    <th>COMPLAINT</th>
+    <th>DATE</th>
+    <th>REPLY</th><tr>
+
+
+     {% for i in complaint %}
+      <tr>
+         <td>
+             {% if i.user.is_nurse == True %}
+             <p>Nurse</p>
+             {% elif i.user.is_customer %}
+             <p>Customer</p>
+             {% endif %}
+         </td>
+         <td>{{i.user}}</td>
+         <td>{{i.subject}}</td>
+         <td>{{ i.complaint }}</td>
+         <td>{{ i.date }}</td>
+         <td>
+             {% if i.reply == None %}
+             <a href="{% url 'reply1' i.id %}">Reply Now</a>
+             {% else %}
+             {{n.reply}}
+             {% endif %}
+
+         </td>
+
+
+
+
+      </tr>
+    {% endfor %}
+
+</table>
+
+        </div>
+    </div>
+</div>
+
+    {% endblock %}

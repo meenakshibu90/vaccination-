@@ -1,0 +1,47 @@
+{% extends 'custtemp/dashindex1.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+
+<div class="col-lg-10">
+    {% for message in messages %}
+    <div class="alert alert-primary" role="alert">
+        {{message}}
+    </div>
+    {% endfor %}
+<div class="container">
+    <h1 class="text-center">CUST_SCHEDULE_VIEW</h1>
+    <div class="row">
+        <div class="card text-center">
+
+
+<table>
+    <tr>
+    <th>DATE</th>
+    <th>HOSPITAL</th>
+    <th>VACCINE</th>
+    <th>START_TIME</th>
+    <th>END_TIME</th><tr>
+
+
+     {% for i in form %}
+      <tr>
+         <td>{{ i.date }}</td>
+         <td>{{ i.hospital }}</td>
+         <td>{{ i.vaccine }}</td>
+         <td>{{ i.start_time }}</td>
+         <td>{{ i.end_time }}</td>
+         <td><a href="{% url 'book' i.id %}"><button type="button" class="btn btn-dark">BOOK APPOINTMENT</button></a></td>
+
+
+
+      </tr>
+    {% endfor %}
+
+</table>
+
+        </div>
+    </div>
+</div>
+</div>
+
+    {% endblock %}

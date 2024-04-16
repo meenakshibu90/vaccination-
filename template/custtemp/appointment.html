@@ -1,0 +1,31 @@
+{% extends 'custtemp/dashindex1.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="container">
+    <h1 class="text-center">BOOK APPOINTMENT</h1>
+    <div class="row">
+        <div class="card text-center ">
+            <form method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+                <br><h5 align="center">ADD APPOINTMENT</h5><br>
+                <label class="form-control-label">Date</label>
+                <input required class="form-control" readonly value="{{schedule.date}}">
+                <label class="form-control-label">Hospital</label>
+                <input required class="form-control" readonly value="{{schedule.hospital}}">
+                <label class="form-control-label">Vaccine</label>
+                <input required class="form-control" readonly value="{{schedule.vaccine}}">
+                <label class="form-control-label">Start_time</label>
+                <input required class="form-control" readonly value="{{schedule.start_time}}">
+                <label class="form-control-label">End_time</label>
+                <input required class="form-control" readonly value="{{schedule.end_time}}">
+                <BR>
+                <div align="center">
+                    <button type="submit" class="btn btn-primary" style="width:100px">Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
+{% endblock %}

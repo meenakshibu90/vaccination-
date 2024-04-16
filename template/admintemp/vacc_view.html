@@ -1,0 +1,34 @@
+{% extends 'admintemp/dashindex.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="container">
+    <h1 class="text-center">VACCINE VIEW</h1>
+    <div class="row">
+        <div class="card text-center">
+
+
+<table>
+    <tr><th>name</th>
+    <th>date</th>
+    <th>description</th><tr>
+
+
+     {% for i in form %}
+      <tr>
+         <td>{{ i.name }}</td>
+         <td>{{ i.date }}</td>
+         <td>{{ i.description }}</td>
+    <td><a href="{% url 'vacc_update' i.id %}"><button>edit</button></a>
+    <a href="{% url 'vacc_delete' i.id %}"><button>delete</button> </a></td>
+
+
+      </tr>
+    {% endfor %}
+
+</table>
+
+        </div>
+    </div>
+</div>
+
+    {% endblock %}

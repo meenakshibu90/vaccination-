@@ -1,0 +1,38 @@
+{% extends 'nursetemp/dashindex2.html' %}
+{% block content %}
+{% load crispy_forms_tags %}
+<div class="container">
+    <h1 class="text-center">SCHEDULE_VIEW</h1>
+    <div class="row">
+        <div class="card text-center">
+
+
+<table>
+    <tr><th>HOSPITAL</th>
+    <th>VACCINE</th>
+    <th>DATE</th>
+    <th>START_TIME</th>
+    <th>END_TIME</th><tr>
+
+
+     {% for i in form %}
+      <tr>
+         <td>{{ i.hospital }}</td>
+         <td>{{ i.vaccine }}</td>
+         <td>{{ i.date }}</td>
+         <td>{{ i.start_time }}</td>
+         <td>{{ i.end_time }}</td>
+    <td><a href="{% url 'sche_update' i.id %}"><button>edit</button></a>
+    <a href="{% url 'sche_delete' i.id %}"><button>delete</button> </a></td>
+
+
+      </tr>
+    {% endfor %}
+
+</table>
+
+        </div>
+    </div>
+</div>
+
+    {% endblock %}
